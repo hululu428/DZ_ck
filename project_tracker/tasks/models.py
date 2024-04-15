@@ -10,10 +10,11 @@ class Project(models.Model):
         return self.name
     
 class Task(models.Model):
-    STATUS_CHOICES = (
-        ('draft', 'Draft'),
-        ('published', 'Published'),
-    )
+    STATUS_CHOICES = [
+        ('New', 'Новая'),
+        ('In_progress', 'В работе'),
+        ('Completed', 'Завершена'),
+    ]  
     project = models.ForeignKey(
         Project,
         related_name='tasks',
