@@ -34,9 +34,9 @@ class BugReport(models.Model):
 
 class FeatureRequest(models.Model):
     STATUS_CHOICES = [
-        ('New', 'Рассмотрение'),
-        ('In_progress', 'Принято'),
-        ('Completed', 'Отклонено'),
+        ('Review', 'Рассмотрение'),
+        ('Accepted', 'Принято'),
+        ('Rejected', 'Отклонено'),
     ]  
     title = models.CharField(max_length=50)
     description = models.TextField()
@@ -55,7 +55,7 @@ class FeatureRequest(models.Model):
     status = models.CharField(
         max_length = 50,
         choices = STATUS_CHOICES,
-        default = 'New'
+        default = 'Review'
     )
     priority = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)

@@ -21,7 +21,7 @@ class Task(models.Model):
         on_delete=models.CASCADE
     )    
     name = models.CharField(max_length=100)
-    deccription = models.TextField()
+    description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
     assignee = models.ForeignKey(
