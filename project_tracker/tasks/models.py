@@ -10,17 +10,18 @@ class Project(models.Model):
         return self.name
     
 class Task(models.Model):
-    STATUS_CHOICES = (
-        ('draft', 'Draft'),
-        ('published', 'Published'),
-    )
+    STATUS_CHOICES = [
+        ('New', 'Новая'),
+        ('In_progress', 'В работе'),
+        ('Completed', 'Завершена'),
+    ]  
     project = models.ForeignKey(
         Project,
         related_name='tasks',
         on_delete=models.CASCADE
     )    
     name = models.CharField(max_length=100)
-    deccription = models.TextField()
+    description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
     assignee = models.ForeignKey(
