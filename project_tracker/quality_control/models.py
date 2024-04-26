@@ -7,7 +7,13 @@ class BugReport(models.Model):
         ('In_progress', 'В работе'),
         ('Completed', 'Завершена'),
     ]  
-
+    PRIORITY_CHOICES = {
+        '1': 1,
+        '2': 2,
+        '3': 3,
+        '4': 4,
+        '5': 5,
+    }  
     title = models.CharField(max_length=50)
     description = models.TextField()
     project = models.ForeignKey(
@@ -27,7 +33,7 @@ class BugReport(models.Model):
         choices = STATUS_CHOICES,
         default = 'New'
     )
-    priority = models.IntegerField()
+    priority = models.CharField( max_length=1, choices=PRIORITY_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
@@ -37,7 +43,14 @@ class FeatureRequest(models.Model):
         ('Review', 'Рассмотрение'),
         ('Accepted', 'Принято'),
         ('Rejected', 'Отклонено'),
-    ]  
+    ]
+    PRIORITY_CHOICES = {
+        '1': 1,
+        '2': 2,
+        '3': 3,
+        '4': 4,
+        '5': 5,
+    }  
     title = models.CharField(max_length=50)
     description = models.TextField()
     project = models.ForeignKey(
@@ -57,7 +70,7 @@ class FeatureRequest(models.Model):
         choices = STATUS_CHOICES,
         default = 'Review'
     )
-    priority = models.IntegerField()
+    priority = models.CharField( max_length=1, choices=PRIORITY_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
