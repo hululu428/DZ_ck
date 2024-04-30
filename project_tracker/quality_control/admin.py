@@ -4,8 +4,8 @@ from .models import BugReport, FeatureRequest
 class BugReportInline(admin.TabularInline):
     model = BugReport
     extra = 0
-    fields = ('status')
-    readonly_fields = ('name', '', 'created_at', 'updated_at')
+    fields = ('status',)
+    readonly_fields = ('title', 'project', 'created_at', 'updated_at')
     can_delete = True
     show_change_link = True
 
