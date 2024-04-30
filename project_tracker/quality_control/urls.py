@@ -3,9 +3,9 @@ from quality_control import views
 
 
 urlpatterns = [
-    path('', views.index),
+    path('', views.IndexView.as_view(), name='index'),
     path('bugs/', views.bug_list),
-    path('bugs/<int:id>', views.bug_detail),
+    path('bugs/<int:bug_id>/', views.BugDetailView.as_view(), name='BugDetailed'),
     path('features/', views.feature_list),
-    path('features/<int:id>', views.feature_detail),
+    path('features/<int:feature_id>/', views.FeatureDetailView.as_view(), name='FeatureDetailed'),
 ]
