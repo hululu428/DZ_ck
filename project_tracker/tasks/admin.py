@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Project, Task
-from ..quality_control.admin import BugReportInline
+# from project_tracker.quality_control.admin import BugReportInline
 
 # Класс администратора для модели Project
 @admin.register(Project)
@@ -10,7 +10,7 @@ class ProjectAdmin(admin.ModelAdmin):
     ordering = ('created_at',)
     date_hierarchy = 'created_at'
 
-    inlines = [BugReportInline]
+    # inlines = [BugReportInline]
 
 # Класс администратора для модели Task
 @admin.register(Task)
